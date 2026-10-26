@@ -1,0 +1,11 @@
+{
+  "name": "learninghub-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:backend": "php -S 127.0.0.1:8000 -t backend/public backend/public/index.php",
+    "build": "npm --prefix frontend run build"
+  }
+}

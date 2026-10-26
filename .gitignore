@@ -1,0 +1,23 @@
+# Ignore all ZIP archives (prevents GitHub 100MB file limit errors)
+*.zip
+
+# Next.js Build Outputs
+frontend/.next/
+frontend/out/
+dist_learninghub/
+.next/
+out/
+
+# Dependencies
+node_modules/
+frontend/node_modules/
+
+# Environment credentials
+backend/.env
+frontend/.env.local
+.env
+
+# Logs and OS cache
+*.log
+.DS_Store
+Thumbs.db
