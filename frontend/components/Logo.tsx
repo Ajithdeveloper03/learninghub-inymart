@@ -38,12 +38,12 @@ export function Logo({
     <div className={`flex items-center gap-3 select-none ${className}`}>
       <div className={`relative ${containerHeights[size] || 'h-16'} w-auto shrink-0 flex items-center justify-center`}>
         <img
-          src="/learninghub/inymart-logo.png"
+          src="/inymart-logo.png"
           onError={(e) => {
             const target = e.currentTarget;
             if (!target.dataset.tried) {
               target.dataset.tried = 'true';
-              target.src = '/inymart-logo.png';
+              target.src = '/learninghub/inymart-logo.png';
             }
           }}
           alt="Inymart Academy - The Branding Fox"

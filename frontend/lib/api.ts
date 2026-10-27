@@ -12,9 +12,12 @@ function getApiBase(): string {
     if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
       return process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000/api';
     }
+    // If deployed in a subfolder like inymartacademy.com/learninghub
     if (window.location.pathname.startsWith('/learninghub')) {
       return '/learninghub/api';
     }
+    // Subdomain root (e.g. learninghub.inymartacademy.com)
+    return '/api';
   }
   return process.env.NEXT_PUBLIC_API_URL || '/api';
 }
@@ -83,7 +86,10 @@ export async function apiFetch<T = any>(
   if (!response.ok || !data.success) {
     if (response.status === 401) {
       removeAuthToken();
-      if (typeof window !== 'undefined') {
+      // Only fire session-revoked warning if the backend explicitly reports that an existing session was revoked
+      const isRevokedError = data.error?.toLowerCase().includes('revoked') || 
+                             (data as any)?.code === 'SESSION_REVOKED';
+      if (typeof window !== 'undefined' && isRevokedError && !endpoint.includes('/auth/login')) {
         window.dispatchEvent(new CustomEvent('session-revoked', { detail: { message: data.error } }));
       }
     }

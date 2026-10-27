@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     'Premier professional Digital Marketing Academy with structured practical curriculum, anti-skip video lessons, real-client campaigns, and instructor-approved certifications.',
   icons: {
-    icon: '/learninghub/inymart-logo.png',
+    icon: '/inymart-logo.png',
   },
 };
 

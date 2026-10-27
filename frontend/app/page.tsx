@@ -133,12 +133,12 @@ export default function SinglePageWebsite() {
                 <div className="text-center pb-6 border-b border-slate-100 flex flex-col items-center">
                   <div className="relative w-64 h-36 mb-2 flex items-center justify-center">
                     <img
-                      src="/learninghub/inymart-logo.png"
+                      src="/inymart-logo.png"
                       onError={(e) => {
                         const target = e.currentTarget;
                         if (!target.dataset.tried) {
                           target.dataset.tried = 'true';
-                          target.src = '/inymart-logo.png';
+                          target.src = '/learninghub/inymart-logo.png';
                         }
                       }}
                       alt="Inymart Academy - The Branding Fox"
